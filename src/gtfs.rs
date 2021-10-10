@@ -19,7 +19,7 @@ use std::sync::Arc;
 /// ```
 ///
 /// The [StopTime] are accessible from the [Trip]
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct Gtfs {
     /// Time needed to read and parse the archive in milliseconds
     pub read_duration: i64,
