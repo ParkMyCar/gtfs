@@ -1,5 +1,6 @@
 //! Module for the error management
 use thiserror::Error;
+use std::path::PathBuf;
 
 /// Specific line from a CSV file that could not be read
 #[derive(Debug)]
@@ -20,8 +21,8 @@ pub enum Error {
     #[error("The id {0} is not known")]
     ReferenceError(String),
     /// The given path to the GTFS is neither a file nor a directory
-    #[error("Could not read GTFS: {0} is neither a file nor a directory")]
-    NotFileNorDirectory(String),
+    #[error("Could not read GTFS: {0:?} is neither a file nor a directory")]
+    NotFileNorDirectory(PathBuf),
     /// The time is not given in the HH:MM:SS format
     #[error("'{0}' is not a valid time; HH:MM:SS format is expected.")]
     InvalidTime(String),
